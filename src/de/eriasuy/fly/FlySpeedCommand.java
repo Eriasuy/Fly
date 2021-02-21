@@ -16,13 +16,14 @@ public class FlySpeedCommand implements CommandExecutor {
 					player.sendMessage("§aSet Flying Speed to Default!");
 					player.setFlySpeed((float) 0.1);
 				} else if (args.length == 1) {
-					float flyspeed = Float.valueOf(args[0]);
+					Float flyspeed = Float.valueOf(args[0]);
 					try {
-						if (flyspeed <= 1 || flyspeed >= -1) {
+						if (flyspeed > 10 || flyspeed < -10) {
+							player.sendMessage("§c§l" + args[0] + "§c is out of range");
+							return false;
+						} else {
 							player.sendMessage("§aSet Flying Speed to §6§l" + args[0] + "§a!");
 							player.setFlySpeed(flyspeed / 10);
-						} else {
-							player.sendMessage("§c§l" + flyspeed + "§c is out of range");
 						}
 					} catch (IllegalArgumentException e) {
 						player.sendMessage("§c§l" + flyspeed + "§c is out of range");
