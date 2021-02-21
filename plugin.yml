@@ -1,0 +1,21 @@
+author: Eriasuy
+name: Fly
+main: de.eriasuy.fly.FlyMain
+version: 1.0
+api-version: 1.16
+commands:
+   fly:
+   disablefly:
+      aliases: dfly
+   flyspeed:
+
+
+
+
+
+
+
+
+
+
+
