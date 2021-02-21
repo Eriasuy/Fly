@@ -4,8 +4,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerCommandSendEvent;
 
 public class FlySpeedCommand implements CommandExecutor {
 
@@ -37,10 +35,5 @@ public class FlySpeedCommand implements CommandExecutor {
 		} else
 			sender.sendMessage("You cannot do this!");
 		return false;
-	}
-	
-	@EventHandler
-	public void onPlayerTab(PlayerCommandSendEvent e) {
-		e.getCommands().remove("");
 	}
 }
