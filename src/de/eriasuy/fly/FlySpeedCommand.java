@@ -1,11 +1,14 @@
 package de.eriasuy.fly;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
-public class FlySpeedCommand implements CommandExecutor {
+public class FlySpeedCommand implements TabExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -35,5 +38,16 @@ public class FlySpeedCommand implements CommandExecutor {
 		} else
 			sender.sendMessage("You cannot do this!");
 		return false;
+	}
+	
+	@Override
+	public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+		if (args.length > 1) {
+			List<String> ntb = new ArrayList<String>();
+			if (ntb.isEmpty())
+				ntb.add("");
+			return ntb;
+		}
+		return null;
 	}
 }
