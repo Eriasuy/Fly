@@ -4,6 +4,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerCommandSendEvent;
 
 public class FlySpeedCommand implements CommandExecutor {
 
@@ -29,11 +31,16 @@ public class FlySpeedCommand implements CommandExecutor {
 						player.sendMessage("§c§l" + flyspeed + "§c is out of range");
 					} 
 				} else
-					player.sendMessage("§cThe correct use is §/flyspeed <number>§c!");
+					player.sendMessage("§cThe correct use is §/flyspeed <-10 - 10>§c!");
 			} else
 				player.sendMessage("§cYou cant do this without permission");
 		} else
 			sender.sendMessage("You cannot do this!");
 		return false;
+	}
+	
+	@EventHandler
+	public void onPlayerTab(PlayerCommandSendEvent e) {
+		e.getCommands().remove("");
 	}
 }
