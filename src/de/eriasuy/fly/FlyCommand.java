@@ -70,7 +70,7 @@ public class FlyCommand implements TabExecutor {
 					} else
 						player.sendMessage("§cYou cant do this without permission");
 				} else
-					player.sendMessage("§cThe correct use is §/disablefly <player>§c!");
+					player.sendMessage("§cThe correct use is §ld/disablefly <player>§c!");
 			} else
 				sender.sendMessage("You cant do this!");
 		}

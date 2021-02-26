@@ -15,11 +15,11 @@ public class FlySpeedCommand implements TabExecutor {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
 			if (player.hasPermission("fly.speed")) {
+				Float flyspeed = Float.parseFloat(args[0]);
 				if (args.length == 0) {
 					player.sendMessage("§aSet Flying Speed to Default!");
 					player.setFlySpeed((float) 0.1);
 				} else if (args.length == 1) {
-					Float flyspeed = Float.valueOf(args[0]);
 					try {
 						if (flyspeed > 10 || flyspeed < -10) {
 							player.sendMessage("§c§l" + args[0] + "§c is out of range");
@@ -30,19 +30,19 @@ public class FlySpeedCommand implements TabExecutor {
 						}
 					} catch (IllegalArgumentException e) {
 						player.sendMessage("§c§l" + flyspeed + "§c is out of range");
-					} 
+					}
 				} else
-					player.sendMessage("§cThe correct use is §/flyspeed <-10 - 10>§c!");
+					player.sendMessage("§cThe correct use is §l/flyspeed <-10 - 10>§c!");
 			} else
 				player.sendMessage("§cYou cant do this without permission");
 		} else
 			sender.sendMessage("You cannot do this!");
 		return false;
 	}
-	
+
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-		if (args.length > 1) {
+		if (args.length > 0) {
 			List<String> ntb = new ArrayList<String>();
 			if (ntb.isEmpty())
 				ntb.add("");
